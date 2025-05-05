@@ -7,7 +7,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 # Setup logging
-log_dir = os.path.join(os.path.dirname(__file__), 'logs')
+log_dir = os.path.join(os.path.dirname(__file__), 'monitor_logs')
 os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'usb_activity.log')
 
