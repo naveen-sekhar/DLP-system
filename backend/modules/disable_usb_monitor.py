@@ -7,7 +7,7 @@ from plyer import notification
 import subprocess
 
 # Setup logging
-log_dir = os.path.join(os.path.dirname(__file__), '..', 'diaable_logs')
+log_dir = os.path.join(os.path.dirname(__file__), '..', 'disable_logs')
 os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'usb_activity.log')
 logging.basicConfig(
