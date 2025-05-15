@@ -1,0 +1,39 @@
+DLP-SOAR-System/
+│
+├── backend/                      # Flask API and Monitoring Scripts
+│   ├── app.py                   # Flask entry point
+│   ├── usb_monitor.py          # USB connect/disconnect logger
+│   ├── usb_file_tracker.py     # File transfer monitoring via USB
+│   ├── edr_monitor.py          # Suspicious process detection
+│   ├── net_monitor.py          # Network traffic monitor
+│   ├── upload_monitor.py       # Upload detection and logging
+│   ├── soar_rules.py           # Auto-response rule engine
+│   ├── db.sqlite3              # SQLite storage (optional)
+│   ├── utils/                  # Helper scripts
+│   │   ├── log_parser.py       # Parse .log files to JSON
+│   │   ├── file_utils.py
+│
+├── logs/                        # Log files
+│   ├── usb_activity.log
+│   ├── usb_file_transfers.log
+│   ├── edr_activity.log
+│   ├── net_traffic.log
+│   ├── upload_attempts.log
+│
+├── frontend/                    # React + Tailwind dashboard
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── USBMonitor.jsx
+│   │   │   ├── FileTransfers.jsx
+│   │   │   ├── EDRPanel.jsx
+│   │   │   ├── NetworkMonitor.jsx
+│   │   │   ├── UploadActivity.jsx
+│   │   │   ├── DashboardLayout.jsx
+│   │   ├── App.jsx
+│   │   ├── index.js
+│
+├── reports/                     # Periodic report JSONs/CSVs
+├── config/                      # Block rules, thresholds
+├── README.md
+└── requirements.txt

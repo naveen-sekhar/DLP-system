@@ -17,3 +17,11 @@ h1, h2 {
 .section {
     margin-bottom: 40px;
 }
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+li {
+    color: #555;
+    margin: 5px 0;
+}

@@ -1,0 +1,17 @@
+{
+    "policies": [
+      {
+        "name": "USB Restrictions",
+        "description": "Block unknown USB devices.",
+        "type": "USB",
+        "devices_allowed": ["USB001", "USB002"]
+      },
+      {
+        "name": "File Upload Restrictions",
+        "description": "Block file uploads to unauthorized websites.",
+        "type": "upload",
+        "websites_blocked": ["example.com", "malicious-site.com"]
+      }
+    ]
+  }
+  

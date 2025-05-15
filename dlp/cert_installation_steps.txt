@@ -1,0 +1,5 @@
+1. Run `mitmproxy` once using: mitmproxy
+2. A folder will be created: ~/.mitmproxy
+3. Inside it, you'll find: mitmproxy-ca-cert.cer
+4. Open it on Windows → Install Certificate → Local Machine → Trusted Root Certification Authorities
+5. Restart Chrome/Edge
