@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-3xl font-bold mb-6">Welcome to DLP Dashboard</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <a href="/usb" class="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg shadow-lg transform transition hover:scale-105">USB Monitoring</a>
+  <a href="/network" class="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg shadow-lg transform transition hover:scale-105">Network Review</a>
+  <a href="/edr" class="bg-purple-500 hover:bg-purple-600 text-white p-6 rounded-lg shadow-lg transform transition hover:scale-105">EDR Review</a>
+  <a href="/other" class="bg-yellow-500 hover:bg-yellow-600 text-white p-6 rounded-lg shadow-lg transform transition hover:scale-105">Other Components</a>
+</div>
+{% endblock %}

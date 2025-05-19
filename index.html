@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLP Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body class="h-full bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Login Page -->
+    <div id="login-page" class="min-h-screen flex items-center justify-center hidden">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-6 text-center">DLP Dashboard Login</h2>
+            <form id="login-form">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2" for="username">Username</label>
+                    <input type="text" id="username" class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2" for="password">Password</label>
+                    <input type="password" id="password" class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="min-h-screen flex hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-gray-800 text-white w-64 flex-shrink-0 transition-all duration-300">
+            <div class="p-4 flex items-center justify-between">
+                <h1 class="text-xl font-bold sidebar-title">DLP Dashboard</h1>
+                <button id="sidebar-toggle" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4">
+                <a href="#home" class="nav-link flex items-center p-4 hover:bg-gray-700 active:bg-blue-600" data-tooltip="Home">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span class="sidebar-label">Home</span>
+                </a>
+                <a href="#usb-monitoring" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="USB Monitoring">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                    <span class="sidebar-label">USB Monitoring</span>
+                </a>
+                <a href="#network-review" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="Network Review">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span class="sidebar-label">Network Review</span>
+                </a>
+                <a href="#edr-review" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="EDR Review">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="sidebar-label">EDR Review</span>
+                </a>
+                <a href="#data-classification" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="Data Classification">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <span class="sidebar-label">Data Classification</span>
+                </a>
+                <a href="#insider-threats" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="Insider Threats">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span class="sidebar-label">Insider Threats</span>
+                </a>
+                <a href="#policy-management" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="Policy Management">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <span class="sidebar-label">Policy Management</span>
+                </a>
+                <a href="#settings" class="nav-link flex items-center p-4 hover:bg-gray-700" data-tooltip="Settings">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="sidebar-label">Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Top Navbar -->
+            <header class="bg-white dark:bg-gray-800 shadow p-4 flex items-center justify-between">
+                <h1 class="text-xl font-bold">DLP Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <div class="relative">
+                        <button id="notification-bell" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            <span id="notification-count" class="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <button id="profile-toggle" class="flex items-center space-x-2">
+                            <img src="https://via.placeholder.com/32" alt="Profile" class="w-8 h-8 rounded-full">
+                        </button>
+                        <div id="profile-dropdown" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded hidden">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+                            <a href="#settings" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+                            <button id="logout" class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="p-6 flex-1 overflow-auto">
+                <!-- Home Page -->
+                <section id="home" class="page">
+                    <h2 class="text-2xl font-bold mb-6">SOAR Metrics Overview</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold">Incidents Detected</h3>
+                            <p class="text-3xl font-bold text-blue-600">142</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold">Automation Runs</h3>
+                            <p class="text-3xl font-bold text-green-600">89</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold">Average Response Time</h3>
+                            <p class="text-3xl font-bold text-yellow-600">3.2s</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                            <h3 class="text-lg font-semibold">Open Alerts</h3>
+                            <p class="text-3xl font-bold text-red-600">12</p>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-6">Quick Access</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="#usb-monitoring" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">USB Monitoring</h3>
+                            <p>Monitor USB device activities</p>
+                        </a>
+                        <a href="#network-review" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">Network Review</h3>
+                            <p>Analyze network traffic</p>
+                        </a>
+                        <a href="#edr-review" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">EDR Review</h3>
+                            <p>Endpoint detection and response</p>
+                        </a>
+                        <a href="#data-classification" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">Data Classification</h3>
+                            <p>Classify sensitive data</p>
+                        </a>
+                        <a href="#insider-threats" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">Insider Threats</h3>
+                            <p>Detect insider threats</p>
+                        </a>
+                        <a href="#policy-management" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <h3 class="text-lg font-semibold">Policy Management</h3>
+                            <p>Manage DLP policies</p>
+                        </a>
+                    </div>
+                    <h2 class="text-2xl font-bold mt-8 mb-6">Recent Activities</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <ul>
+                            <li class="py-2">USB device detected on endpoint A12</li>
+                            <li class="py-2">Network anomaly flagged at 14:32</li>
+                            <li class="py-2">EDR alert resolved</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- USB Monitoring -->
+                <section id="usb-monitoring" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">USB Monitoring</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-100 dark:bg-gray-700">
+                                    <th class="p-2 text-left">Device ID</th>
+                                    <th class="p-2 text-left">User</th>
+                                    <th class="p-2 text-left">Time</th>
+                                    <th class="p-2 text-left">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2">USB-001</td>
+                                    <td class="p-2">John Doe</td>
+                                    <td class="p-2">2025-05-10 10:23</td>
+                                    <td class="p-2">Connected</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Network Review -->
+                <section id="network-review" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">Network Review</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>Network traffic logs placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+
+                <!-- EDR Review -->
+                <section id="edr-review" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">EDR Review</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>Endpoint detection logs placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+
+                <!-- Data Classification -->
+                <section id="data-classification" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">Data Classification</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>Data classification logs placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+
+                <!-- Insider Threats -->
+                <section id="insider-threats" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">Insider Threats</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>Insider threat logs placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+
+                <!-- Policy Management -->
+                <section id="policy-management" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">Policy Management</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>Policy management interface placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+
+                <!-- Settings -->
+                <section id="settings" class="page hidden">
+                    <h2 class="text-2xl font-bold mb-6">Settings</h2>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <p>User settings placeholder (ready for backend integration).</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
