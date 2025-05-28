@@ -1,5 +1,3 @@
-# monitor_health.py
-
 import psutil
 import firebase_admin
 from firebase_admin import credentials, db
